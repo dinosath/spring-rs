@@ -2,6 +2,8 @@
 #![doc(html_favicon_url = "https://spring-rs.github.io/favicon.ico")]
 #![doc(html_logo_url = "https://spring-rs.github.io/logo.svg")]
 
+pub use sea_orm;
+
 pub mod config;
 pub mod pagination;
 
