@@ -1,0 +1,17 @@
+[package]
+name = "sea-orm-migration-example"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+summer = { path = "../../summer" }
+summer-sea-orm = { path = "../../summer-sea-orm", features = ["postgres"] }
+summer-sea-orm-migration = { path = "../../summer-sea-orm-migration" }
+summer-macros = { path = "../../summer-macros" }
+summer-web = { path = "../../summer-web" }
+async-trait = { workspace = true }
+sea-orm = { workspace = true, features = ["sqlx-postgres"] }
+tokio = { workspace = true, features = ["full", "tracing"] }
+anyhow = { workspace = true }

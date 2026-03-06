@@ -1,0 +1,25 @@
+[package]
+name = "summer-sea-orm-migration"
+description = "SeaORM migration plugin for summer-rs"
+version = "0.5.0"
+categories = ["database"]
+keywords = ["orm", "sql-database", "migration", "summer"]
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[features]
+default = []
+
+[dependencies]
+summer = { path = "../summer", version = "0.5" }
+summer-sea-orm = { path = "../summer-sea-orm", version = "0.5.0-rc.0" }
+serde = { workspace = true, features = ["derive"] }
+schemars = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true, features = ["log"] }
+async-trait = { workspace = true }
+sea-orm = { workspace = true }
+inventory = { workspace = true }

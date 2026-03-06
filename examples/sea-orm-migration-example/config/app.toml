@@ -1,0 +1,11 @@
+[web]
+port = 8000
+
+[sea-orm]
+uri = "postgres://postgres:postgres@127.0.0.1:5432/sea_orm_migration_example"
+min_connections = 1
+max_connections = 10
+
+[sea-orm-migration]
+enable = true
+migrate_at_start = true

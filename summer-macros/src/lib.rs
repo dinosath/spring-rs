@@ -10,6 +10,7 @@ mod problem_details;
 mod inject;
 mod job;
 mod middlewares;
+mod migration;
 mod nest;
 mod route;
 #[cfg(feature = "socket_io")]
@@ -895,4 +896,37 @@ pub fn sa_check_permissions_or(attr: TokenStream, input: TokenStream) -> TokenSt
 #[proc_macro_attribute]
 pub fn sa_ignore(attr: TokenStream, input: TokenStream) -> TokenStream {
     sa_token::sa_ignore_impl(attr, input)
+}
+
+/// Auto-register a SeaORM migration struct.
+///
+/// The struct must implement the `MigrationTrait` trait with `up()` and `down()` methods.
+/// 
+/// # Examples
+/// ```rust,ignore
+/// use summer_sea_orm::migration::MigrationTrait;
+/// use summer_macros::migration;
+/// use async_trait::async_trait;
+///
+/// #[migration]
+/// pub struct CreateUsersTable;
+///
+/// #[async_trait]
+/// impl MigrationTrait for CreateUsersTable {
+///     fn name(&self) -> &str {
+///         "m20240101_000001_create_users_table"
+///     }
+///
+///     async fn up(&self, db: &sea_orm::DbConn) -> anyhow::Result<()> {
+///         Ok(())
+///     }
+///
+///     async fn down(&self, db: &sea_orm::DbConn) -> anyhow::Result<()> {
+///         Ok(())
+///     }
+/// }
+/// ```
+#[proc_macro_attribute]
+pub fn migration(attr: TokenStream, input: TokenStream) -> TokenStream {
+    migration::migration(input)
 }
