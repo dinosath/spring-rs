@@ -9,6 +9,8 @@ on:
 env:
   CARGO_TERM_COLOR: always
   CARGO_INCREMENTAL: 0
+  # Dotenv, `fs::read_to_string`, tempfile tests, etc. need host cwd/FS; Miri isolation blocks these.
+  MIRIFLAGS: -Zmiri-disable-isolation
 
 jobs:
   miri:
