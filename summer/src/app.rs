@@ -174,7 +174,7 @@ impl AppBuilder {
 
     /// The path of the configuration file, default is `./config/app.toml`.
     /// The application automatically reads the environment configuration file
-    /// in the same directory according to the `summer_ENV` environment variable,
+    /// in the same directory according to the `SUMMER_ENV` environment variable,
     /// such as `./config/app-dev.toml`.
     /// The environment configuration file has a higher priority and will
     /// overwrite the configuration items of the main configuration file.
